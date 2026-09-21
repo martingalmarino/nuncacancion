@@ -112,6 +112,75 @@ export const writings: Writing[] = [
       },
     ],
   },
+  {
+    id: "escrito-002",
+    label: "Escrito 002",
+    order: 2,
+    published: true,
+    movements: [
+      {
+        stanzas: [
+          {
+            lines: [
+              "Qué canción",
+              "nos va a",
+              "acompañar,",
+              "cuando el",
+              "río deje de",
+              "cantar, y",
+              "nos",
+              "comience a",
+              "devorar?",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Tu lengua se",
+              "atragantará",
+              "en la mía,",
+              "cuando el",
+              "pez nos",
+              "confiese que",
+              "la orilla no",
+              "existe?",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: ["Little", "princess..."],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: ["El oxígeno", "se nos", "acaba."],
+          },
+        ],
+      },
+    ],
+    emphasis: [
+      {
+        movementIndex: 2,
+        stanzaIndex: 0,
+        lineIndex: 0,
+        kind: "display-interrupt",
+      },
+      {
+        movementIndex: 2,
+        stanzaIndex: 0,
+        lineIndex: 1,
+        kind: "display-interrupt",
+      },
+    ],
+  },
 ];
 
 export const publishedWritings: Writing[] = writings

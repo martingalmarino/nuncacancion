@@ -89,9 +89,17 @@ a:hover {
 
 .page-shell {
   position: relative;
+  isolation: isolate;
   width: min(100%, var(--shell));
   margin: 0 auto;
   padding: 0 var(--pad-x) 3.5rem;
+}
+
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
 }
 
 .site-header,
@@ -324,6 +332,12 @@ a:hover {
   scroll-margin-top: 1.25rem;
 }
 
+.writing + .writing {
+  margin-top: 0.5rem;
+  padding-top: clamp(2.2rem, 6vw, 3.8rem);
+  border-top: 1px solid color-mix(in srgb, var(--paper) 12%, transparent);
+}
+
 .writing:focus {
   outline: none;
 }
@@ -400,6 +414,14 @@ a:hover {
   overflow-wrap: break-word;
 }
 
+.stanza > .line-interrupt:first-child {
+  margin-top: 0;
+}
+
+.line-interrupt + br + .line-interrupt {
+  margin-top: 0.06em;
+}
+
 .site-footer {
   padding: 0.4rem 0 1.2rem;
   border-top: 1px solid color-mix(in srgb, var(--paper) 14%, transparent);
@@ -414,26 +436,154 @@ a:hover {
   user-select: none;
 }
 
+.deco-wash,
+.deco-scratches,
+.deco-glitch,
 .deco-grain {
   position: fixed;
   inset: 0;
-  z-index: 8;
-  opacity: 0.045;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  mix-blend-mode: overlay;
+}
+
+.deco-wash {
+  z-index: 0;
+  background:
+    radial-gradient(90% 70% at 4% 22%, color-mix(in srgb, var(--paper) 9%, transparent), transparent 52%),
+    radial-gradient(70% 50% at 96% 70%, color-mix(in srgb, var(--paper) 6%, transparent), transparent 48%),
+    linear-gradient(185deg, transparent 8%, color-mix(in srgb, var(--paper) 4%, transparent) 26%, transparent 44%);
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 11%,
+    rgb(0 0 0 / 0.18) 22%,
+    rgb(0 0 0 / 0.05) 36%,
+    rgb(0 0 0 / 0.05) 64%,
+    rgb(0 0 0 / 0.22) 80%,
+    #000 92%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 11%,
+    rgb(0 0 0 / 0.18) 22%,
+    rgb(0 0 0 / 0.05) 36%,
+    rgb(0 0 0 / 0.05) 64%,
+    rgb(0 0 0 / 0.22) 80%,
+    #000 92%
+  );
 }
 
 .deco-scratches {
-  position: fixed;
-  inset: 0;
-  z-index: 7;
-  opacity: 0.18;
-  background:
-    linear-gradient(108deg, transparent 12%, color-mix(in srgb, var(--paper) 35%, transparent) 12.15%, transparent 12.35%) 0 8%,
-    linear-gradient(97deg, transparent 78%, color-mix(in srgb, var(--paper) 28%, transparent) 78.12%, transparent 78.4%) 100% 18%,
-    linear-gradient(86deg, transparent 41%, color-mix(in srgb, var(--paper) 22%, transparent) 41.08%, transparent 41.3%) 6% 72%;
+  z-index: 0;
+  background-color: transparent;
+  background-image:
+    url("/textures/distress.svg"),
+    linear-gradient(108deg, transparent 6%, color-mix(in srgb, var(--paper) 45%, transparent) 6.12%, transparent 6.4%) 0 9% / 18vw 1px no-repeat,
+    linear-gradient(96deg, transparent 8%, color-mix(in srgb, var(--paper) 32%, transparent) 8.15%, transparent 8.45%) 0 28% / 14vw 1px no-repeat,
+    linear-gradient(88deg, transparent 4%, color-mix(in srgb, var(--paper) 28%, transparent) 4.1%, transparent 4.4%) 0 71% / 12vw 1px no-repeat,
+    linear-gradient(-78deg, transparent 10%, color-mix(in srgb, var(--paper) 40%, transparent) 10.12%, transparent 10.4%) 100% 14% / 16vw 1px no-repeat,
+    linear-gradient(-102deg, transparent 7%, color-mix(in srgb, var(--paper) 30%, transparent) 7.1%, transparent 7.35%) 100% 48% / 13vw 1px no-repeat,
+    linear-gradient(-94deg, transparent 9%, color-mix(in srgb, var(--paper) 26%, transparent) 9.12%, transparent 9.4%) 100% 82% / 15vw 1px no-repeat;
   background-repeat: no-repeat;
-  background-size: 42vw 1px, 28vw 1px, 18vw 1px;
+  background-size: cover, 18vw 1px, 14vw 1px, 12vw 1px, 16vw 1px, 13vw 1px, 15vw 1px;
+  background-position: center top, 0 9%, 0 28%, 0 71%, 100% 14%, 100% 48%, 100% 82%;
+  opacity: 0.85;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 9%,
+    rgb(0 0 0 / 0.15) 18%,
+    transparent 30%,
+    transparent 70%,
+    rgb(0 0 0 / 0.18) 82%,
+    #000 93%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    #000 9%,
+    rgb(0 0 0 / 0.15) 18%,
+    transparent 30%,
+    transparent 70%,
+    rgb(0 0 0 / 0.18) 82%,
+    #000 93%
+  );
+}
+
+.deco-glitch {
+  z-index: 0;
+  opacity: 0.85;
+  background:
+    linear-gradient(90deg, color-mix(in srgb, var(--accent) 55%, transparent), transparent 42%) 0 11% / 7vw 2px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--paper) 40%, transparent), transparent 60%) 0 11.35% / 5vw 3px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--paper) 50%, transparent), transparent 50%) 100% 19% / 9vw 2px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--accent) 45%, transparent), transparent 55%) 100% 19.4% / 6vw 4px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--paper) 35%, transparent), transparent 48%) 100% 42% / 8vw 2px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--accent) 40%, transparent), transparent 60%) 100% 42.35% / 5.5vw 3px no-repeat,
+    linear-gradient(90deg, color-mix(in srgb, var(--paper) 30%, transparent), transparent 55%) 0 63% / 6vw 2px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--paper) 42%, transparent), transparent 45%) 100% 78% / 10vw 2px no-repeat,
+    linear-gradient(-90deg, color-mix(in srgb, var(--accent) 38%, transparent), transparent 58%) 100% 78.4% / 7vw 3px no-repeat;
+  mix-blend-mode: screen;
+  -webkit-mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgb(0 0 0 / 0.7) 9%,
+    transparent 20%,
+    transparent 80%,
+    rgb(0 0 0 / 0.75) 90%,
+    #000 100%
+  );
+  mask-image: linear-gradient(
+    90deg,
+    #000 0%,
+    rgb(0 0 0 / 0.7) 9%,
+    transparent 20%,
+    transparent 80%,
+    rgb(0 0 0 / 0.75) 90%,
+    #000 100%
+  );
+}
+
+.deco-glitch::before,
+.deco-glitch::after {
+  content: "";
+  position: absolute;
+  pointer-events: none;
+}
+
+.deco-glitch::before {
+  top: 16%;
+  right: 0;
+  width: min(11vw, 9rem);
+  height: 18px;
+  background:
+    linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent) 50%, transparent) 40%, transparent),
+    linear-gradient(0deg, transparent 40%, color-mix(in srgb, var(--paper) 28%, transparent) 40% 58%, transparent 58%);
+  transform: translateX(4px);
+  opacity: 0.45;
+}
+
+.deco-glitch::after {
+  bottom: 18%;
+  left: 0;
+  width: min(9vw, 7rem);
+  height: 11px;
+  background: linear-gradient(
+    90deg,
+    color-mix(in srgb, var(--paper) 40%, transparent),
+    color-mix(in srgb, var(--accent) 28%, transparent) 55%,
+    transparent
+  );
+  transform: translateX(-3px);
+  opacity: 0.4;
+}
+
+.deco-grain {
+  z-index: 2;
+  opacity: 0.05;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: overlay;
 }
 
 .deco-crop {
@@ -547,6 +697,22 @@ a:hover {
   .deco-tear,
   .deco-crop::after {
     display: none;
+  }
+
+  .deco-wash,
+  .deco-scratches,
+  .deco-glitch {
+    -webkit-mask-image: radial-gradient(ellipse 72% 58% at 42% 38%, transparent 0 42%, rgb(0 0 0 / 0.55) 78%, #000 100%);
+    mask-image: radial-gradient(ellipse 72% 58% at 42% 38%, transparent 0 42%, rgb(0 0 0 / 0.55) 78%, #000 100%);
+  }
+
+  .deco-scratches {
+    opacity: 0.55;
+  }
+
+  .deco-glitch::before,
+  .deco-glitch::after {
+    opacity: 0.28;
   }
 
   .site-header,
