@@ -1,0 +1,65 @@
+---
+import BaseLayout from "../layouts/BaseLayout.astro";
+import SiteHeader from "../components/SiteHeader.astro";
+import SiteFooter from "../components/SiteFooter.astro";
+import WritingArticle from "../components/WritingArticle.astro";
+import { site } from "../config/site";
+import { publishedWritings } from "../data/writings";
+
+const showIndex = publishedWritings.length > 1;
+---
+
+<BaseLayout>
+  <div class="page-shell" id="inicio">
+    <div class="deco deco-grain" aria-hidden="true"></div>
+    <div class="deco deco-scratches" aria-hidden="true"></div>
+
+    <SiteHeader />
+
+    <main id="contenido">
+      <section class="opening" aria-labelledby="sitio-titulo">
+        <div class="deco deco-crop" aria-hidden="true"></div>
+        <div class="deco deco-register" aria-hidden="true"></div>
+        <div class="deco deco-tear" aria-hidden="true"></div>
+        <div class="deco deco-rule" aria-hidden="true"></div>
+
+        <p class="opening-kicker">archivo de escritos</p>
+
+        <div class="opening-title-wrap">
+          <h1 id="sitio-titulo" class="opening-title">
+            {site.wordmarkLines.map((line) => (
+              <span class="opening-line">{line}</span>
+            ))}
+          </h1>
+          <span class="wordmark-ghost wordmark-ghost-a" aria-hidden="true">
+            {site.wordmarkLines.map((line) => (
+              <span class="opening-line">{line}</span>
+            ))}
+          </span>
+        </div>
+
+        <a class="opening-read" href={`#${publishedWritings[0]?.id ?? "escritos"}`}>Leer</a>
+      </section>
+
+      <section id="escritos" class="escritos" aria-label="Escritos">
+        {
+          showIndex && (
+            <nav class="writings-index" aria-label="Índice de escritos">
+              <ol>
+                {publishedWritings.map((writing) => (
+                  <li>
+                    <a href={`#${writing.id}`}>{writing.label}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          )
+        }
+
+        {publishedWritings.map((writing) => <WritingArticle writing={writing} />)}
+      </section>
+    </main>
+
+    <SiteFooter />
+  </div>
+</BaseLayout>

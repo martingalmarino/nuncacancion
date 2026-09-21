@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" role="img" aria-label="Nunca Canción">
+  <rect width="32" height="32" fill="#0B0B0B"/>
+  <g fill="none" stroke-linecap="square">
+    <path stroke="#EAE6DD" stroke-width="1.25" d="M16 5v5.5M16 21.5V27M5 16h5.5M21.5 16H27"/>
+    <circle cx="16" cy="16" r="3.2" stroke="#EAE6DD" stroke-width="1.25"/>
+    <circle cx="16.7" cy="16.7" r="3.2" stroke="#B83B32" stroke-width="1"/>
+  </g>
+</svg>

@@ -1,0 +1,55 @@
+---
+import type { Writing } from "../data/writings";
+import { lineClassName } from "../data/writings";
+
+interface Props {
+  writing: Writing;
+}
+
+const { writing } = Astro.props;
+const heading = writing.title ?? writing.label;
+---
+
+<article class="writing" id={writing.id} tabindex="-1">
+  <header class="writing-head">
+    {
+      writing.title ? (
+        <>
+          <p class="writing-label">{writing.label}</p>
+          <h2 class="writing-title">{writing.title}</h2>
+        </>
+      ) : (
+        <h2 class="writing-title">{heading}</h2>
+      )
+    }
+  </header>
+
+  {
+    writing.movements.map((movement, movementIndex) => (
+      <div class={`movement movement-${String(movementIndex + 1).padStart(2, "0")}`}>
+        <span class="movement-index" aria-hidden="true">
+          {String(movementIndex + 1).padStart(2, "0")}
+        </span>
+        {movement.stanzas.map((stanza, stanzaIndex) => (
+          <p class="stanza">
+            {stanza.lines.map((line, lineIndex) => {
+              const className = lineClassName(
+                writing,
+                movementIndex,
+                stanzaIndex,
+                lineIndex,
+              );
+              const isLast = lineIndex === stanza.lines.length - 1;
+              return (
+                <>
+                  <span class:list={[className]}>{line}</span>
+                  {!isLast && <br />}
+                </>
+              );
+            })}
+          </p>
+        ))}
+      </div>
+    ))
+  }
+</article>

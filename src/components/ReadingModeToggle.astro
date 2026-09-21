@@ -1,0 +1,42 @@
+<button
+  class="reading-toggle"
+  type="button"
+  data-reading-toggle
+  aria-pressed="false"
+  hidden
+>
+  Modo lectura
+</button>
+
+<script>
+  const STORAGE_KEY = "nunca-cancion-reading-mode";
+  const root = document.documentElement;
+  const toggle = document.querySelector<HTMLButtonElement>("[data-reading-toggle]");
+
+  if (toggle) {
+    const apply = (enabled: boolean) => {
+      root.classList.toggle("reading-mode", enabled);
+      toggle.setAttribute("aria-pressed", enabled ? "true" : "false");
+    };
+
+    let stored = false;
+    try {
+      stored = window.localStorage.getItem(STORAGE_KEY) === "1";
+    } catch {
+      stored = false;
+    }
+
+    apply(stored);
+    toggle.hidden = false;
+
+    toggle.addEventListener("click", () => {
+      const next = toggle.getAttribute("aria-pressed") !== "true";
+      apply(next);
+      try {
+        window.localStorage.setItem(STORAGE_KEY, next ? "1" : "0");
+      } catch {
+        /* Storage may be unavailable; keep the session preference only. */
+      }
+    });
+  }
+</script>
