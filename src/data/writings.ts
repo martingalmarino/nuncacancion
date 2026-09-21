@@ -211,6 +211,65 @@ export const writings: Writing[] = [
       },
     ],
   },
+  {
+    id: "escrito-004",
+    label: "Escrito 004",
+    title: "La suerte en paquete de diez",
+    order: 4,
+    published: true,
+    movements: [
+      {
+        stanzas: [
+          {
+            lines: [
+              "Lames mi piel, y yo muerdo",
+              "de tu soledad,",
+              "me preguntas si las cosas",
+              "son así, no respondo,",
+              "pero vos despertás.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Desayunamos restos de suerte",
+              "en paquete de diez,",
+              "miramos el vaso,",
+              "me preguntas si las cosas",
+              "son así, no respondo,",
+              "pero vos despertás.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Enciendo lo que queda de mí,",
+              "atropello tus jeans y me lamento.",
+              "Me preguntas si las cosas",
+              "son así, no respondo,",
+              "pero vos despertás.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Desearía que estés dormida,",
+              "para tener algo que decir.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedWritings: Writing[] = writings
