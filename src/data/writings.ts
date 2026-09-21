@@ -181,6 +181,36 @@ export const writings: Writing[] = [
       },
     ],
   },
+  {
+    id: "escrito-003",
+    label: "Escrito 003",
+    order: 3,
+    published: true,
+    movements: [
+      {
+        stanzas: [
+          {
+            lines: [
+              "Un tropezar con pedacitos tuyos,",
+              "Un avión cayendo a la vez,",
+              "Un invierno sin abrigos,",
+              "Ni piel.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Un tropezar con pedacitos tuyos,",
+              "un caer, y caer, y caer.",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedWritings: Writing[] = writings

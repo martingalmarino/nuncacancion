@@ -379,6 +379,9 @@ main,
 
 .movement-04 {
   margin-left: 1.35rem;
+}
+
+.movement:last-child {
   margin-bottom: 0;
   padding-bottom: 4.5rem;
 }
@@ -586,6 +589,45 @@ main,
   mix-blend-mode: overlay;
 }
 
+.deco-figures {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent 0 48%, rgb(0 0 0 / 0.35) 62%, #000 78%);
+  mask-image: linear-gradient(90deg, transparent 0 48%, rgb(0 0 0 / 0.35) 62%, #000 78%);
+}
+
+.figure {
+  position: absolute;
+  display: block;
+  height: auto;
+  mix-blend-mode: screen;
+  filter: contrast(1.08) saturate(0.45);
+  pointer-events: none;
+}
+
+.figure-coat {
+  top: 3.5rem;
+  right: -0.5rem;
+  width: min(22vw, 210px);
+  opacity: 0.34;
+}
+
+.figure-walk {
+  top: 46%;
+  right: -1.2rem;
+  width: min(24vw, 230px);
+  opacity: 0.26;
+}
+
+.figure-stand {
+  top: 74%;
+  right: 1.4rem;
+  width: min(20vw, 190px);
+  opacity: 0.22;
+}
+
 .deco-crop {
   position: absolute;
   inset: 0.15rem auto auto 0;
@@ -713,6 +755,23 @@ main,
   .deco-glitch::before,
   .deco-glitch::after {
     opacity: 0.28;
+  }
+
+  .deco-figures {
+    -webkit-mask-image: linear-gradient(90deg, transparent 0 58%, rgb(0 0 0 / 0.4) 78%, #000 100%);
+    mask-image: linear-gradient(90deg, transparent 0 58%, rgb(0 0 0 / 0.4) 78%, #000 100%);
+  }
+
+  .figure-walk,
+  .figure-stand {
+    display: none;
+  }
+
+  .figure-coat {
+    top: 5.5rem;
+    right: -12%;
+    width: 42vw;
+    opacity: 0.18;
   }
 
   .site-header,
