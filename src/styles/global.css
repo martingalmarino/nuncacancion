@@ -25,10 +25,6 @@ html {
   overflow-x: hidden;
 }
 
-html.reading-mode {
-  scroll-behavior: auto;
-}
-
 body {
   margin: 0;
   min-height: 100%;
@@ -115,15 +111,8 @@ main,
   flex-wrap: wrap;
 }
 
-.header-tools {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem 1.1rem;
-}
-
 .wordmark-link,
 .header-index,
-.reading-toggle,
 .opening-read,
 .footer-top,
 .writings-index a {
@@ -207,9 +196,7 @@ main,
 }
 
 .header-index,
-.reading-toggle,
 .footer-top,
-.opening-kicker,
 .opening-read,
 .writing-title,
 .writing-label,
@@ -229,34 +216,9 @@ main,
   color: var(--paper);
 }
 
-.reading-toggle {
-  appearance: none;
-  border: 0;
-  padding: 0;
-  background: transparent;
-  color: var(--mute);
-  font-family: inherit;
-  cursor: pointer;
-}
-
-.reading-toggle:hover,
-.reading-toggle[aria-pressed="true"] {
-  color: var(--paper);
-}
-
-.reading-toggle[aria-pressed="true"] {
-  text-decoration: underline;
-  text-underline-offset: 0.28em;
-}
-
 .opening {
   position: relative;
   padding: clamp(1.4rem, 4vh, 2.6rem) 0 clamp(1.8rem, 5vh, 3.2rem);
-}
-
-.opening-kicker {
-  margin: 0 0 0.85rem;
-  max-width: 18rem;
 }
 
 .opening-title-wrap {
@@ -736,19 +698,6 @@ main,
   opacity: 0.35;
 }
 
-.reading-mode .deco,
-.reading-mode .wordmark-ghost,
-.reading-mode .opening-read::before {
-  display: none;
-}
-
-.reading-mode .movement-01,
-.reading-mode .movement-02,
-.reading-mode .movement-03,
-.reading-mode .movement-04 {
-  margin-left: 0;
-}
-
 @media (max-width: 767px) {
   .movement:not(.movement-plain) {
     padding-left: 2.15rem;
@@ -806,8 +755,7 @@ main,
 }
 
 @media (prefers-reduced-motion: reduce) {
-  html,
-  html.reading-mode {
+  html {
     scroll-behavior: auto;
   }
 

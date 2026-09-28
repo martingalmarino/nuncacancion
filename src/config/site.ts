@@ -4,7 +4,7 @@ export const site = {
   wordmarkLines: ["nunca", "canción"] as const,
   title: "Nunca Canción — Escritos",
   description:
-    "Un archivo de escritos. Palabras, heridas y latidos en una experiencia de lectura íntima.",
+    "Palabras, heridas y latidos en una experiencia de lectura íntima.",
   locale: "es-AR",
   openGraphLocale: "es_AR",
   /**
