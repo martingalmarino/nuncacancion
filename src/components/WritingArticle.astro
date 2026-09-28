@@ -8,6 +8,7 @@ interface Props {
 
 const { writing } = Astro.props;
 const heading = writing.title ?? writing.label;
+const numbered = writing.movements.length > 1;
 ---
 
 <article class="writing" id={writing.id} tabindex="-1">
@@ -26,10 +27,18 @@ const heading = writing.title ?? writing.label;
 
   {
     writing.movements.map((movement, movementIndex) => (
-      <div class={`movement movement-${String(movementIndex + 1).padStart(2, "0")}`}>
-        <span class="movement-index" aria-hidden="true">
-          {String(movementIndex + 1).padStart(2, "0")}
-        </span>
+      <div
+        class:list={[
+          "movement",
+          `movement-${String(movementIndex + 1).padStart(2, "0")}`,
+          { "movement-plain": !numbered },
+        ]}
+      >
+        {numbered && (
+          <span class="movement-index" aria-hidden="true">
+            {String(movementIndex + 1).padStart(2, "0")}
+          </span>
+        )}
         {movement.stanzas.map((stanza, stanzaIndex) => (
           <p class="stanza">
             {stanza.lines.map((line, lineIndex) => {

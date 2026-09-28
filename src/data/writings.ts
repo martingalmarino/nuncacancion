@@ -280,28 +280,22 @@ export const writings: Writing[] = [
       {
         stanzas: [
           {
-            lines: [
-              "tu nombre me sabe a derrota.",
-              "Y ahora exijo explicaciones.",
-              "No tuyas, por supuesto.",
-            ],
+            lines: ["tu nombre me sabe a derrota."],
           },
-        ],
-      },
-      {
-        stanzas: [
           {
             lines: [
+              "Y ahora exijo explicaciones.",
+              "No tuyas, por supuesto.",
               "¿Vos qué podés saber de todo esto?",
+            ],
+          },
+          {
+            lines: [
               "¿Por qué siempre tan a destiempo,",
               "tan errado en el calendario",
               "y tan certero en los golpes?",
             ],
           },
-        ],
-      },
-      {
-        stanzas: [
           {
             lines: [
               "Ya no me quedan canciones.",
@@ -309,10 +303,15 @@ export const writings: Writing[] = [
               "y afuera los besos no me mojan.",
             ],
           },
-        ],
-      },
-      {
-        stanzas: [
+          {
+            lines: ["Y no habrá lecciones,"],
+          },
+          {
+            lines: ["aprendizajes,"],
+          },
+          {
+            lines: ["ni nada para rescatar,"],
+          },
           {
             lines: [
               "¿Cómo fue que te empecé a perder",

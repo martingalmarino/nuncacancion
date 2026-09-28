@@ -397,6 +397,20 @@ main,
   padding-bottom: 4.5rem;
 }
 
+.movement-plain {
+  padding-left: 0;
+  margin-left: 0;
+}
+
+.movement-plain .stanza {
+  margin-bottom: 1.7em;
+}
+
+.movement-plain .stanza:last-child {
+  margin-top: 1.35em;
+  margin-bottom: 0;
+}
+
 .movement-index {
   position: absolute;
   left: 0;
@@ -736,7 +750,7 @@ main,
 }
 
 @media (max-width: 767px) {
-  .movement {
+  .movement:not(.movement-plain) {
     padding-left: 2.15rem;
   }
 
