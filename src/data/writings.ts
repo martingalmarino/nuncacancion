@@ -304,15 +304,6 @@ export const writings: Writing[] = [
             ],
           },
           {
-            lines: ["Y no habrá lecciones,"],
-          },
-          {
-            lines: ["aprendizajes,"],
-          },
-          {
-            lines: ["ni nada para rescatar,"],
-          },
-          {
             lines: [
               "¿Cómo fue que te empecé a perder",
               "sin siquiera intentarte?",
