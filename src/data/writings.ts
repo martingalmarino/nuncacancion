@@ -270,6 +270,59 @@ export const writings: Writing[] = [
       },
     ],
   },
+  {
+    id: "escrito-005",
+    label: "Escrito 005",
+    title: "Con G o con J",
+    order: 5,
+    published: true,
+    movements: [
+      {
+        stanzas: [
+          {
+            lines: [
+              "tu nombre me sabe a derrota.",
+              "Y ahora exijo explicaciones.",
+              "No tuyas, por supuesto.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "¿Vos qué podés saber de todo esto?",
+              "¿Por qué siempre tan a destiempo,",
+              "tan errado en el calendario",
+              "y tan certero en los golpes?",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "Ya no me quedan canciones.",
+              "Ya me sequé de soñarte.",
+              "y afuera los besos no me mojan.",
+            ],
+          },
+        ],
+      },
+      {
+        stanzas: [
+          {
+            lines: [
+              "¿Cómo fue que te empecé a perder",
+              "sin siquiera intentarte?",
+            ],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedWritings: Writing[] = writings
