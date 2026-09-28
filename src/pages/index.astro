@@ -11,58 +11,15 @@ const showIndex = publishedWritings.length > 1;
 
 <BaseLayout>
   <div class="page-shell" id="inicio">
-    <div class="deco deco-wash" aria-hidden="true"></div>
-    <div class="deco deco-scratches" aria-hidden="true"></div>
-    <div class="deco deco-glitch" aria-hidden="true"></div>
-    <div class="deco deco-grain" aria-hidden="true"></div>
-    <div class="deco deco-figures" aria-hidden="true">
-      <img
-        class="figure figure-coat"
-        src="/figures/coat.webp"
-        alt=""
-        width="268"
-        height="512"
-        decoding="async"
-      />
-      <img
-        class="figure figure-walk"
-        src="/figures/walk.webp"
-        alt=""
-        width="308"
-        height="504"
-        decoding="async"
-      />
-      <img
-        class="figure figure-stand"
-        src="/figures/stand.webp"
-        alt=""
-        width="256"
-        height="512"
-        decoding="async"
-      />
-    </div>
-
     <SiteHeader />
 
     <main id="contenido">
       <section class="opening" aria-labelledby="sitio-titulo">
-        <div class="deco deco-crop" aria-hidden="true"></div>
-        <div class="deco deco-register" aria-hidden="true"></div>
-        <div class="deco deco-tear" aria-hidden="true"></div>
-        <div class="deco deco-rule" aria-hidden="true"></div>
-
-        <div class="opening-title-wrap">
-          <h1 id="sitio-titulo" class="opening-title">
-            {site.wordmarkLines.map((line) => (
-              <span class="opening-line">{line}</span>
-            ))}
-          </h1>
-          <span class="wordmark-ghost wordmark-ghost-a" aria-hidden="true">
-            {site.wordmarkLines.map((line) => (
-              <span class="opening-line">{line}</span>
-            ))}
-          </span>
-        </div>
+        <h1 id="sitio-titulo" class="opening-title">
+          {site.wordmarkLines.map((line) => (
+            <span class="opening-line">{line}</span>
+          ))}
+        </h1>
 
         <a class="opening-read" href={`#${publishedWritings[0]?.id ?? "escritos"}`}>Leer</a>
       </section>
