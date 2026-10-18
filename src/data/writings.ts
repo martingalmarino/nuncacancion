@@ -313,6 +313,46 @@ export const writings: Writing[] = [
       },
     ],
   },
+  {
+    id: "escrito-006",
+    label: "Escrito 006",
+    title: "Jazmín",
+    order: 6,
+    published: true,
+    movements: [
+      {
+        stanzas: [
+          {
+            lines: ["Jazmín"],
+          },
+          {
+            lines: ["Jirafa"],
+          },
+          {
+            lines: ["Jilguero"],
+          },
+          {
+            lines: ["Japón"],
+          },
+          {
+            lines: ["Jabalí"],
+          },
+          {
+            lines: ["Juguete"],
+          },
+          {
+            lines: ["A ver si con J,"],
+          },
+          {
+            lines: ["por este día,"],
+          },
+          {
+            lines: ["no me acuerdo de vos."],
+          },
+        ],
+      },
+    ],
+  },
 ];
 
 export const publishedWritings: Writing[] = writings
