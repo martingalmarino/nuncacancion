@@ -316,7 +316,6 @@ export const writings: Writing[] = [
   {
     id: "escrito-006",
     label: "Escrito 006",
-    title: "Jazmín",
     order: 6,
     published: true,
     movements: [
