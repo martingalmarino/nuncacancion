@@ -340,6 +340,21 @@ export const writings: Writing[] = [
             lines: ["Juguete"],
           },
           {
+            lines: ["Jeringa"],
+          },
+          {
+            lines: ["Jinete"],
+          },
+          {
+            lines: ["Juego"],
+          },
+          {
+            lines: ["Joven"],
+          },
+          {
+            lines: ["Jueves"],
+          },
+          {
             lines: ["A ver si con J,"],
           },
           {
